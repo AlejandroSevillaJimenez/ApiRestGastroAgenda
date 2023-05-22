@@ -1,4 +1,4 @@
-package com.example.ApiRestGastroAgenda.Controller;
+package com.example.ApiRestGastroAgenda.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
