@@ -13,4 +13,6 @@ public interface UsuariosService {
 
     public Usuario insertarUsuario(String nombre, String apellidos, String usuario, String email, String contrasena);
 
+    public Boolean existeUsuario(String nombre, String contrasena);
+
 }

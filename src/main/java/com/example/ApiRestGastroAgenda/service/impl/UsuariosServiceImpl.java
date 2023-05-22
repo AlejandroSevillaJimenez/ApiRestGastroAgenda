@@ -41,4 +41,14 @@ public class UsuariosServiceImpl implements UsuariosService {
 
         return usuariosRepository.save(usuarioNuevo);
     }
+
+    @Override
+    public Boolean existeUsuario(String nombre, String contrasena) {
+        Usuario usuario = usuariosRepository.findByNombreAndContrasena(nombre, contrasena);
+        if (usuario != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
