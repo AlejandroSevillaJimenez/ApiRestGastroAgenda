@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/")
 public class ApiRestGastroAgendaController {
 
-    @GetMapping(name = "saludo/")
+    @GetMapping("saludo/")
     public String saludo(){
+
         return "Hola, buenos días!";
+
     }
 
 }
