@@ -51,4 +51,24 @@ public class UsuariosServiceImpl implements UsuariosService {
             return false;
         }
     }
+
+    @Override
+    public Boolean existeUsuarioUsuario(String usuario) {
+        Usuario usuarioComprobacion = usuariosRepository.findByUsuario(usuario);
+        if (usuarioComprobacion != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean existeEmail(String email) {
+        Usuario usuarioComprobacion = usuariosRepository.findByEmail(email);
+        if (usuarioComprobacion != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

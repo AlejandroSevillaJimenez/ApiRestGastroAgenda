@@ -48,4 +48,14 @@ public class ApiRestGastroAgendaController {
         return usuariosService.existeUsuario(usuario, contrasena);
     }
 
+    @GetMapping("existeUsuarioUsuario/")
+    public Boolean existeUsuarioUsuario(@RequestParam(value = "usuario", required = true) String usuario){
+        return usuariosService.existeUsuarioUsuario(usuario);
+    }
+
+    @GetMapping("existeEmail/")
+    public Boolean existeEmail(@RequestParam(value = "email", required = true) String email){
+        return usuariosService.existeEmail(email);
+    }
+
 }
