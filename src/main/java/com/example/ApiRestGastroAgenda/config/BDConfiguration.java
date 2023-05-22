@@ -12,9 +12,9 @@ public class BDConfiguration {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/gastro_agenda");
-        dataSource.setUsername("root");
+        dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        dataSource.setUrl("jdbc:sqlserver://gastroagenda.database.windows.net:1433;database=gastroagenda");
+        dataSource.setUsername("alseji");
         dataSource.setPassword("Sejial00");
         return dataSource;
     }
