@@ -19,4 +19,6 @@ public interface UsuariosService {
 
     public Boolean existeEmail(String email);
 
+    public Boolean existeUsuarioRegistrar(String nombre, String apellidos, String usuario, String email, String contrasena);
+
 }
