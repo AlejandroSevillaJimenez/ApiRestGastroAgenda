@@ -1,6 +1,8 @@
 package com.example.ApiRestGastroAgenda.controller;
 
+import com.example.ApiRestGastroAgenda.model.Restaurante;
 import com.example.ApiRestGastroAgenda.model.Usuario;
+import com.example.ApiRestGastroAgenda.service.RestaurantesService;
 import com.example.ApiRestGastroAgenda.service.UsuariosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +16,13 @@ public class ApiRestGastroAgendaController {
     @Autowired
     private UsuariosService usuariosService;
 
-    public ApiRestGastroAgendaController(UsuariosService usuariosService){
+    @Autowired
+    private RestaurantesService restaurantesService;
+
+    public ApiRestGastroAgendaController(UsuariosService usuariosService, RestaurantesService restaurantesService){
 
         this.usuariosService = usuariosService;
+        this.restaurantesService = restaurantesService;
 
     }
 
@@ -67,6 +73,13 @@ public class ApiRestGastroAgendaController {
 
         return usuariosService.existeUsuarioRegistrar(nombre, apellidos, usuario, email, contrasena);
 
+    }
+
+    //CONSULTAS RESTAURANTES
+
+    @GetMapping("listaRestaurantes/")
+    public List<Restaurante> listaRestaurantes(){
+        return restaurantesService.listaRestaurantes();
     }
 
 }
