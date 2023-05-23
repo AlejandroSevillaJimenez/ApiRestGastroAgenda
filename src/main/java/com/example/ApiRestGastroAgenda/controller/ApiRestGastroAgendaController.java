@@ -1,7 +1,10 @@
 package com.example.ApiRestGastroAgenda.controller;
 
 import com.example.ApiRestGastroAgenda.model.Restaurante;
+import com.example.ApiRestGastroAgenda.model.RestauranteRecomendado;
 import com.example.ApiRestGastroAgenda.model.Usuario;
+import com.example.ApiRestGastroAgenda.repository.RestauranteRecomendadoRepository;
+import com.example.ApiRestGastroAgenda.service.RestauranteRecomendadoService;
 import com.example.ApiRestGastroAgenda.service.RestaurantesService;
 import com.example.ApiRestGastroAgenda.service.UsuariosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +22,14 @@ public class ApiRestGastroAgendaController {
     @Autowired
     private RestaurantesService restaurantesService;
 
-    public ApiRestGastroAgendaController(UsuariosService usuariosService, RestaurantesService restaurantesService){
+    @Autowired
+    private RestauranteRecomendadoService restauranteRecomendadoService;
+
+    public ApiRestGastroAgendaController(UsuariosService usuariosService, RestaurantesService restaurantesService, RestauranteRecomendadoService restauranteRecomendadoService){
 
         this.usuariosService = usuariosService;
         this.restaurantesService = restaurantesService;
+        this.restauranteRecomendadoService = restauranteRecomendadoService;
 
     }
 
@@ -80,6 +87,21 @@ public class ApiRestGastroAgendaController {
     @GetMapping("listaRestaurantes/")
     public List<Restaurante> listaRestaurantes(){
         return restaurantesService.listaRestaurantes();
+    }
+
+
+    //CONSULTAS RESTAURANTES RECOMENDADOS
+
+    @GetMapping("listaRestaurantesRecomendados/")
+    public List<RestauranteRecomendado> listaRestaurantesRecomendados(){
+        return restauranteRecomendadoService.listaRestaurantesRecomendados();
+    }
+
+    @PostMapping("insertarRestauranteRecomendado/")
+    public RestauranteRecomendado insertarRestauranteRecomendado(@RequestParam(value = "nombre", required = true)String nombre,
+                                                                 @RequestParam(value = "lugar", required = true)String lugar,
+                                                                 @RequestParam(value = "tipoComida", required = true)String tipoComida){
+        return restauranteRecomendadoService.insertarRestauranteRecomendado(nombre, lugar, tipoComida);
     }
 
 }
