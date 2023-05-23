@@ -5,9 +5,11 @@ import com.example.ApiRestGastroAgenda.model.Usuario;
 import com.example.ApiRestGastroAgenda.repository.RestaurantesRepository;
 import com.example.ApiRestGastroAgenda.service.RestaurantesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class RestaurantesServiceImpl implements RestaurantesService {
 
     @Autowired
