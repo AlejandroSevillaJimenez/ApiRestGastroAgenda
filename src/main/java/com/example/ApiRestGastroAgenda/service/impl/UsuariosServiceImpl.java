@@ -43,13 +43,8 @@ public class UsuariosServiceImpl implements UsuariosService {
     }
 
     @Override
-    public Boolean existeUsuario(String usuario, String contrasena) {
-        Usuario usuarioComprobacion = usuariosRepository.findByUsuarioAndContrasena(usuario, contrasena);
-        if (usuarioComprobacion != null){
-            return true;
-        }else{
-            return false;
-        }
+    public Usuario existeUsuario(String usuario, String contrasena) {
+        return usuariosRepository.findByUsuarioAndContrasena(usuario, contrasena);
     }
 
     @Override
