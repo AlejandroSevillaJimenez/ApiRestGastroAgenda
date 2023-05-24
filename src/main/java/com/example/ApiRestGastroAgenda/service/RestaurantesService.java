@@ -8,4 +8,6 @@ public interface RestaurantesService {
 
     public List<Restaurante> listaRestaurantes();
 
+    public Restaurante insertarRestaurante(String nombre, String telefono, String web, String imagenRuta, String tipoComida, String descripción);
+
 }

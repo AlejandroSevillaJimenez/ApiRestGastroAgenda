@@ -89,6 +89,18 @@ public class ApiRestGastroAgendaController {
         return restaurantesService.listaRestaurantes();
     }
 
+    @PostMapping("insertarRestaurante/")
+    public Restaurante insertarRestaurante(@RequestParam(value = "nombre", required = true) String nombre,
+                                       @RequestParam(value = "telefono", required = true) String telefono,
+                                       @RequestParam(value = "web", required = true) String web,
+                                       @RequestParam(value = "imagenRuta", required = true) String imagenRuta,
+                                       @RequestParam(value = "tipoComida", required = true) String tipoComida,
+                                       @RequestParam(value = "descripcion", required = true) String descripcion){
+
+        return restaurantesService.insertarRestaurante(nombre, telefono, web, imagenRuta, tipoComida, descripcion);
+
+    }
+
 
     //CONSULTAS RESTAURANTES RECOMENDADOS
 

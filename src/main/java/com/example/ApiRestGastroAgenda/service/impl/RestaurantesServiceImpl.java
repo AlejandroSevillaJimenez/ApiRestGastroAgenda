@@ -26,4 +26,17 @@ public class RestaurantesServiceImpl implements RestaurantesService {
 
         return listaRestaurantes;
     }
+
+    @Override
+    public Restaurante insertarRestaurante(String nombre, String telefono, String web, String imagenRuta, String tipoComida, String descripción) {
+        Restaurante restaurante = new Restaurante();
+        restaurante.setNombre(nombre);
+        restaurante.setTelefono(telefono);
+        restaurante.setWeb(web);
+        restaurante.setImagenRuta(imagenRuta);
+        restaurante.setTipoComida(tipoComida);
+        restaurante.setDescripcion(descripción);
+
+        return restaurantesRepository.save(restaurante);
+    }
 }
